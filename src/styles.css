@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Instrument Serif", ui-serif, Georgia, "Times New Roman", serif;
+  --font-cv-sans: "Source Sans 3", "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-cv-serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+
+  --color-bg: #f6f3ee;
+  --color-bg-elevated: #fffcf8;
+  --color-fg: #1a1c1e;
+  --color-muted: #5c6570;
+  --color-subtle: #8a929c;
+  --color-primary: #1d4ed8;
+  --color-primary-fg: #ffffff;
+  --color-primary-hover: #1e40af;
+  --color-navy: #0f2744;
+  --color-navy-fg: #f6f3ee;
+  --color-border: #e4dfd6;
+  --color-border-strong: #cfc8bb;
+  --color-success: #0f7a4a;
+  --color-danger: #b42318;
+  --color-paper: #ffffff;
+  --color-ink: #1a1c1e;
+  --color-ring: #1d4ed8;
+
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+}
+
+@layer base {
+  html {
+    background: var(--color-bg);
+    color: var(--color-fg);
+    overflow-x: hidden;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100dvh;
+    font-family: var(--font-sans);
+    background: var(--color-bg);
+    color: var(--color-fg);
+    line-height: 1.5;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--color-primary) 22%, white);
+  }
+}
+
+@utility font-display {
+  font-family: var(--font-display);
+}
+
+.cv-sheet {
+  width: 794px;
+  min-height: 1123px;
+  background: #fff;
+  color: #1a1c1e;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.cv-sheet * {
+  box-sizing: border-box;
+}
+
+.paper-grain {
+  background-color: var(--color-bg);
+  background-image:
+    radial-gradient(circle at 12% 8%, color-mix(in oklab, var(--color-navy) 6%, transparent), transparent 42%),
+    radial-gradient(circle at 88% 0%, color-mix(in oklab, var(--color-primary) 8%, transparent), transparent 36%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
